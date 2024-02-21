@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ghcr.io/heewon00/springboot_crud_security_keycloak_new:v3
+        image: ghcr.io/heewon00/springboot_crud_security_keycloak_new
         imagePullPolicy: Always
         env:
           - name: SPRING_PROFILES_ACTIVE
