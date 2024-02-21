@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/kt-cloudnative/vue_crud_security_keycloak:v1
+        image: ghcr.io/heewon00/vue_crud_security_keycloak:v3
         imagePullPolicy: Always
         env:
         - name: BACKEND_API_URL
@@ -40,17 +40,16 @@ spec:
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: front-duckdns-ingress
+  name: duckdns-ingress
   annotations:
     kubernetes.io/ingress.class: "nginx"
 spec:
-#  tls:
-#  - hosts:
-#    - frontend-keycloak-ssl-apps.kteducation.duckdns.org
-#    secretName: edu-tls
-#    # kubectl create secret tls edu-tls --cert /certs/wildcard-cert.pem --key /certs/wildcard-key.pem -n default
+  tls:
+  - hosts:
+    - frontend-keycloak-ssl.kthw.duckdns.org
+    secretName: edu-tls
   rules:
-  - host: frontend-keycloak2.kteducation.duckdns.org
+  - host: frontend-keycloak-ssl.kthw.duckdns.org
     http:
       paths:
       - path: /
@@ -59,4 +58,27 @@ spec:
           service:
             name: frontend
             port:
-              number: 80  
+              number: 80
+# apiVersion: networking.k8s.io/v1
+# kind: Ingress
+# metadata:
+#   name: front-duckdns-ingress
+#   annotations:
+#     kubernetes.io/ingress.class: "nginx"
+# spec:
+# #  tls:
+# #  - hosts:
+# #    - frontend-keycloak-ssl-apps.kteducation.duckdns.org
+# #    secretName: edu-tls
+# #    # kubectl create secret tls edu-tls --cert /certs/wildcard-cert.pem --key /certs/wildcard-key.pem -n default
+#   rules:
+#   - host: frontend-keycloak2.kteducation.duckdns.org
+#     http:
+#       paths:
+#       - path: /
+#         pathType: Prefix
+#         backend:
+#           service:
+#             name: frontend
+#             port:
+#               number: 80  
