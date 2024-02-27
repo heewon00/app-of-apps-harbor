@@ -21,4 +21,14 @@ spec:
           - name: SPRING_PROFILES_ACTIVE
             value: "prd"
         ports:
-        - containerPort: 9080
+          - name: http
+            containerPort: 9080
+            protocol: TCP
+        livenessProbe:
+          httpGet:
+            path: /actuator/health/liveness
+            port: http
+        readinessProbe:
+          httpGet:
+            path: /autuator/health/readiness
+            port: http
