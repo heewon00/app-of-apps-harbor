@@ -4,4 +4,4 @@ resources:
 - manifest.yaml
 images:
 - name: ghcr.io/heewon00/vue_crud_security_keycloak
-  newTag: "20240221073347"
+  newTag: "v4"
