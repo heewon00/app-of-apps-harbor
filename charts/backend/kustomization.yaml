@@ -5,4 +5,4 @@ resources:
 - backend-svc.yaml
 images:
 - name: ghcr.io/heewon00/springboot_crud_security_keycloak_new
-  newTag: v2
+  newTag: v4
