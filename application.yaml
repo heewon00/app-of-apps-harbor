@@ -1,7 +1,8 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: edu-apps
+  # 🔥 appName
+  name: harbor-test
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
   finalizers:
@@ -12,6 +13,7 @@ spec:
   project: default
   
   source:
+    # 🔥 repoURL
     repoURL: https://github.com/heewon00/app-of-apps-keycloak-harbor.git
     targetRevision: HEAD
     path: apps
