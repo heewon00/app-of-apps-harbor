@@ -15,44 +15,10 @@ spec:
     spec:
       containers:
       - name: backend
-        image: ghcr.io/heewon00/springboot_crud_security_keycloak_new
+        image: myharbor.apps.211-34-231-93.nip.io/edu/vue_crud_security
         imagePullPolicy: Always
         env:
           - name: SPRING_PROFILES_ACTIVE
-            value: "prd"
+            value: "local"
         ports:
-        - containerPort: 9080
-# apiVersion: apps/v1
-# kind: Deployment
-# metadata:
-#   name: backend
-# spec:
-#   replicas: 1
-#   revisionHistoryLimit: 3
-#   selector:
-#     matchLabels:
-#       app: backend
-#   template:
-#     metadata:
-#       labels:
-#         app: backend
-#     spec:
-#       containers:
-#       - name: backend
-#         image: ghcr.io/heewon00/springboot_crud_security_keycloak_new
-#         imagePullPolicy: Always
-#         env:
-#           - name: SPRING_PROFILES_ACTIVE
-#             value: "prd"
-#         ports:
-#           - name: http
-#             containerPort: 9080
-#             protocol: TCP
-#         livenessProbe:
-#           httpGet:
-#             path: /actuator/health/liveness
-#             port: http
-#         readinessProbe:
-#           httpGet:
-#             path: /autuator/health/readiness
-#             port: http
+        - containerPort: 8080
