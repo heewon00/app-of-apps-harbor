@@ -5,4 +5,4 @@ resources:
 - backend-svc.yaml
 images:
 - name: myharbor.apps.211-34-231-93.nip.io/edu/springboot_crud_security
-  newTag: "20240214090740"
+  newTag: "20240409020822"
