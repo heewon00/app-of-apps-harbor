@@ -16,11 +16,11 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: ghcr.io/heewon00/vue_crud_security_keycloak
+        image: myharbor.apps.211-34-231-93.nip.io/edu/vue_crud_security
         imagePullPolicy: Always
         env:
-        - name: BACKEND_API_URL
-          value: "backend" 
+          - name: BACKEND_API_URL
+            value: "backend" 
         ports:
         - containerPort: 80
 ---
@@ -35,50 +35,4 @@ spec:
     - protocol: TCP
       port: 80
       targetPort: 80
-  type: NodePort
----
-apiVersion: networking.k8s.io/v1
-kind: Ingress
-metadata:
-  name: duckdns-ingress
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
-spec:
-  tls:
-  - hosts:
-    - frontend-keycloak-ssl.kthw.duckdns.org
-    secretName: edu-tls
-  rules:
-  - host: frontend-keycloak-ssl.kthw.duckdns.org
-    http:
-      paths:
-      - path: /
-        pathType: Prefix
-        backend:
-          service:
-            name: frontend
-            port:
-              number: 80
-# apiVersion: networking.k8s.io/v1
-# kind: Ingress
-# metadata:
-#   name: front-duckdns-ingress
-#   annotations:
-#     kubernetes.io/ingress.class: "nginx"
-# spec:
-# #  tls:
-# #  - hosts:
-# #    - frontend-keycloak-ssl-apps.kteducation.duckdns.org
-# #    secretName: edu-tls
-# #    # kubectl create secret tls edu-tls --cert /certs/wildcard-cert.pem --key /certs/wildcard-key.pem -n default
-#   rules:
-#   - host: frontend-keycloak2.kteducation.duckdns.org
-#     http:
-#       paths:
-#       - path: /
-#         pathType: Prefix
-#         backend:
-#           service:
-#             name: frontend
-#             port:
-#               number: 80  
+  type: ClusterIP   
