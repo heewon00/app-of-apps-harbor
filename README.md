@@ -1,6 +1,3 @@
 # app of apps
-[[📝 2/21] KeyCloak FE/BE 한 번에 배포하기](https://www.notion.so/heewon00/240205-240228-SpringBatch-Airflow-Kafka-Redis-Keycloak-OKD-Observability-0b2b278866bf460cb6d65847c21e75fd?pvs=4#040b3f5d1c264c509fa7cdaef6a4f3b7)  
-[[🔥 2/21 과제] kust하여 jenkins빌드하기](https://www.notion.so/heewon00/240205-240228-SpringBatch-Airflow-Kafka-Redis-Keycloak-OKD-Observability-0b2b278866bf460cb6d65847c21e75fd?pvs=4#4a9a9cf47fab45c9baee5f5eeb20e2d9)  
-
-- ArgoCD App-of-Apps 패턴 ( Front / Backend / DB )  
-- GitOps : Jenkins kust Build
+- Jenkins  
+  [[🔥 mvp 환경설정] Jenkins Master-Slave 빌드 테스트(harbor)](https://www.notion.so/heewon00/79a9d8403ce04cc5bf910f238dddc182?pvs=4#098f179c0cd640ea91e4d819baaa2fed) 
