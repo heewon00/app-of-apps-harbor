@@ -19,7 +19,7 @@ spec:
   destination:
     server: https://kubernetes.default.svc
     # 🔥 namespace
-    namespace: edue
+    namespace: edu3
   
   syncPolicy:
     automated: 
