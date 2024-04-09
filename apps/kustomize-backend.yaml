@@ -11,13 +11,15 @@ spec:
   project: default
   
   source:
-    repoURL: https://github.com/heewon00/app-of-apps-keycloak.git
+    # 🔥 repoURL
+    repoURL: https://github.com/heewon00/app-of-apps-harbor.git
     targetRevision: HEAD
     path: charts/backend
   
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
+    # 🔥 namespace
+    namespace: edue
   
   syncPolicy:
     automated: 
