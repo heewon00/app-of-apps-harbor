@@ -42,7 +42,8 @@ spec:
   selector:
     app: frontend-bluegreen
   ports:
-    - protocol: TCP
+    - name: frontend
+      protocol: TCP
       port: 80
       targetPort: 80
   type: ClusterIP   
@@ -55,7 +56,8 @@ spec:
   selector:
     app: frontend-bluegreen
   ports:
-    - protocol: TCP
+    - name: frontend-preview
+      protocol: TCP
       port: 80
       targetPort: 80
   type: ClusterIP  
