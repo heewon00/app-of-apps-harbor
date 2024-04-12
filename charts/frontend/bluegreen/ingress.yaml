@@ -10,7 +10,7 @@ spec:
     name: frontend
     weight: 100
   port:
-    targetPort: http
+    targetPort: frontend
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
@@ -28,7 +28,7 @@ spec:
     name: frontend-preview
     weight: 100
   port:
-    targetPort: http
+    targetPort: frontend-preview
   tls:
     termination: edge
     insecureEdgeTerminationPolicy: Redirect
