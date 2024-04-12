@@ -2,19 +2,19 @@
 apiVersion: argoproj.io/v1alpha1     # apps/v1 대신 argoproj.io/v1alpha1을 사용한다
 kind: Rollout  # Deployment 대신 Rollout을 사용한다
 metadata:
-  name: frontend-bluegreen
+  name: frontend
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: frontend-bluegreen
+      app: frontend
   template:
     metadata:
       labels:
-        app: frontend-bluegreen
+        app: frontend
     spec:
       containers:
-      - name: frontend-bluegreen
+      - name: frontend
         image: myharbor.apps.211-34-231-93.nip.io/edu/vue_crud_security
         imagePullPolicy: Always
         env:
@@ -40,7 +40,7 @@ metadata:
   name: frontend-service
 spec:
   selector:
-    app: frontend-bluegreen
+    app: frontend
   ports:
     - protocol: TCP
       port: 80
@@ -53,7 +53,7 @@ metadata:
   name: frontend-service-preview
 spec:
   selector:
-    app: frontend-bluegreen
+    app: frontend
   ports:
     - protocol: TCP
       port: 80
