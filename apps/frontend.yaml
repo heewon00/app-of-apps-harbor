@@ -2,7 +2,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   # 🔥 argocdName
-  name: frontend-harbor
+  name: frontend-application
   # ArgoCD가 설치되어 있는 namespace
   namespace: argocd
   # Add a this finalizer ONLY if you want these to cascade delete.
