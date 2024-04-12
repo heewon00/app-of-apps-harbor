@@ -2,20 +2,20 @@
 apiVersion: argoproj.io/v1alpha1     # apps/v1 대신 argoproj.io/v1alpha1을 사용한다
 kind: Rollout  # Deployment 대신 Rollout을 사용한다
 metadata:
-  name: backend-bluegreen
+  name: backend
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: backend-bluegreen
+      app: backend
   template:
     metadata:
       labels:
-        app: backend-bluegreen
+        app: backend
     spec:
       containers:
-      - name: backend-bluegreen
+      - name: backend
         image: myharbor.apps.211-34-231-93.nip.io/edu/springboot_crud_security
         imagePullPolicy: Always
         env:
@@ -44,7 +44,7 @@ spec:
   - port: 80	
     targetPort: 8080	
   selector:	
-    app: backend-bluegreen
+    app: backend
   type: NodePort
 ---
 apiVersion: v1	
@@ -56,5 +56,5 @@ spec:
   - port: 80	
     targetPort: 8080	
   selector:	
-    app: backend-bluegreen
+    app: backend
   type: NodePort
