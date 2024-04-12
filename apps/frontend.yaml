@@ -16,7 +16,7 @@ spec:
     # 🔥 repoURL
     repoURL: https://github.com/heewon00/app-of-apps-harbor.git
     targetRevision: HEAD
-    path: charts/frontend
+    path: charts/frontend/bluegreen
   
   destination:
     server: https://kubernetes.default.svc
