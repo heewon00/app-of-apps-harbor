@@ -1,0 +1,60 @@
+# ArgoCD Blue/Green 배포 예제
+apiVersion: argoproj.io/v1alpha1     # apps/v1 대신 argoproj.io/v1alpha1을 사용한다
+kind: Rollout  # Deployment 대신 Rollout을 사용한다
+metadata:
+  name: backend-bluegreen
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: backend-bluegreen
+  template:
+    metadata:
+      labels:
+        app: backend-bluegreen
+    spec:
+      containers:
+      - name: backend-bluegreen
+        image: myharbor.apps.211-34-231-93.nip.io/edu/springboot_crud_security
+        imagePullPolicy: Always
+        env:
+          - name: SPRING_PROFILES_ACTIVE
+            value: "local"
+        ports:
+        - containerPort: 8080
+  strategy:
+    blueGreen: 
+      #activeService는 이전의 배포된 Blue 서비스
+      activeService: backend-service
+      
+      #previewService는 새롭게 배포될 Green 서비스
+      previewService: backend-service-preview
+      
+      #autoPromotioEnabled 옵션은 Blue/Green 배포를 자동으로 진행할 것인지 여부. false 옵션을 사용해 수동으로 지정
+      autoPromotionEnabled: false
+
+---
+apiVersion: v1	
+kind: Service	
+metadata:	
+  name: backend-service
+spec:	
+  ports:	
+  - port: 80	
+    targetPort: 8080	
+  selector:	
+    app: backend-bluegreen
+  type: NodePort
+---
+apiVersion: v1	
+kind: Service	
+metadata:	
+  name: backend-service-preview
+spec:	
+  ports:	
+  - port: 80	
+    targetPort: 8080	
+  selector:	
+    app: backend-bluegreen
+  type: NodePort
